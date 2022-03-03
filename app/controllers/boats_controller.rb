@@ -30,6 +30,15 @@ class BoatsController < ApplicationController
   def show
   end
 
+  def search
+    if boat_params[:search].blank?
+      redirect_to boats_path and return
+    else
+      @parameter = params[:search].downcase
+      @results = Boats.all.where('lower(name) LIKE :search', search: "%#{@parameter}%")
+    end
+  end
+
   private
 
   # def user_status
