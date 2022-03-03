@@ -1,5 +1,7 @@
 class BoatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_boat, only: :show
+
   def index
     if params[:query].present?
       @query = params[:query]
@@ -38,6 +40,7 @@ class BoatsController < ApplicationController
 
   def set_boat
     @boat = Boat.find(params[:id])
+    authorize @boat
   end
 
   def boat_params
