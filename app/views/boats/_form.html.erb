@@ -3,4 +3,21 @@
     <%= f.label :name, class: "form-label" %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
+  <div class="mb-3">
+    <%= f.label :description, class: "form-label" %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :add_photo, class: "form-label" %>
+    <%= f.text_field :add_photo, class: 'form-control' %>
+  </div>
+   <div class="mb-3">
+    <%= f.label :price, class: "form-label" %>
+    <%= f.text_field :price, class: 'form-control' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Submit", class: "btn btn-primary" %>
+  </div>
+
 <% end %>
