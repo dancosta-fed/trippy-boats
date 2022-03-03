@@ -1,12 +1,13 @@
 class BoatsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   def index
     if params[:query].present?
       @query = params[:query]
-      @boats = Boat.where("name ILIKE ?","%#{params[:query]}%")
+      @boats = policy_scope(Boat).where("name ILIKE ?", "%#{params[:query]}%")
       # Preventing SQL Injection and Database error for
       # unknown characters
     else
-      @boats = Boat.all
+      @boats = policy_scope(Boat)
     end
   end
 
@@ -17,6 +18,8 @@ class BoatsController < ApplicationController
   def create
     @boat = Boat.new(boat_params)
     @boat.user = current_user
+
+    authorize @boat
     if @boat.save
       redirect_to boats_path
     else
@@ -29,6 +32,10 @@ class BoatsController < ApplicationController
 
   private
 
+  # def user_status
+  #   user_signed_in?
+  # end
+
   def set_boat
     @boat = Boat.find(params[:id])
   end
@@ -36,5 +43,4 @@ class BoatsController < ApplicationController
   def boat_params
     params.require(:boat).permit(:name, :description, :price, :location)
   end
-
 end
