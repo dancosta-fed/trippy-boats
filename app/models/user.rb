@@ -7,6 +7,5 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :boats, through: :bookings
 
-  validates :fullname, presence: true, length: { maximum: 50 }
-
+  validates :fullname, presence: true, length: { minimum: 5 }
 end
