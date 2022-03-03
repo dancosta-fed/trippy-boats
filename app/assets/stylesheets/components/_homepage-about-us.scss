@@ -1,0 +1,25 @@
+.homepage-about-us-text {
+  //display: flex;
+  //align-content: center;
+  //justify-content: center;
+  //flex-direction: column;
+  //margin: 20px 20px 0 20px;
+  border-radius: 0 0 60% 60%;
+  background-color: whitesmoke;
+  padding: 50px;
+  text-align: center;
+}
+
+.homepage-about-us p {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.homepage-about-us {
+  background-image: url(https://media.shermanstravel.com/christian/her-st-vincent-mbrand85.jpg);
+  padding-bottom: 300px;
+  background-size: cover;
+  margin: 20px;
+  background-position: center;
+  border-radius: 0 0 25px 25px;
+}
