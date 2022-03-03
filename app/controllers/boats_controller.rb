@@ -1,6 +1,6 @@
 class BoatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_boat, only: :show
+  before_action :set_boat, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:query].present?
@@ -13,8 +13,15 @@ class BoatsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def new
     @boat = Boat.new
+    authorize @boat
+  end
+
+  def edit
   end
 
   def create
@@ -29,7 +36,19 @@ class BoatsController < ApplicationController
     end
   end
 
-  def show
+  def update
+    authorize @boat
+    if @boat.update(boat_params)
+      redirect_to @boat, notice: 'boat was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    authorize @boat
+    @boat.destroy
+    redirect_to boats_url, notice: 'boat was successfully destroyed.'
   end
 
   private

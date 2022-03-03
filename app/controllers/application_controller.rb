@@ -9,13 +9,19 @@ class ApplicationController < ActionController::Base
   # after_action :verify_authorized, except: :boats, unless: :skip_pundit?
   # after_action :verify_policy_scoped, only: :boats, unless: :skip_pundit?
 
-  def configure_permitted_parameters
-    # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname])
-
-    # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:fullname])
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_to(root_path)
   end
+
+  # def configure_permitted_parameters
+  #   # For additional fields in app/views/devise/registrations/new.html.erb
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname])
+#
+  #   # For additional in app/views/devise/registrations/edit.html.erb
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:fullname])
+  # end
 
   private
 
