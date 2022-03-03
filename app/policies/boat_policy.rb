@@ -11,7 +11,7 @@ class BoatPolicy < ApplicationPolicy
   end
 
   def new?
-    admin?
+    true
   end
 
   def create?
