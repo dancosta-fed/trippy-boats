@@ -9,4 +9,8 @@ class BoatsController < ApplicationController
       @boats = Boat.all
     end
   end
+
+  def show
+  end
+
 end
