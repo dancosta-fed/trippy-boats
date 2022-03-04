@@ -1,6 +1,9 @@
-// .card {
-//   border-radius: 20px;
-// }
+.card {
+  
+  &:hover {
+    box-shadow: 2px 2px #808080;
+  }
+}
 
 .card-category {
   background-size: cover;
@@ -15,7 +18,13 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
-  &:hover {
-    box-shadow: 3px 3px;
-  }
+  // &:hover {
+  //   box-shadow: 3px 3px;
+  // }
+}
+
+.card-text, 
+.card-title {
+  color: #808080;
+  text-transform: capitalize;
 }
