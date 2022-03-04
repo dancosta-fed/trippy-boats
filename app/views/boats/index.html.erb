@@ -17,19 +17,19 @@
 
 <div class="container mt-3">
   <div class="row">
+  <% @boats.each do |boat| %>
     <div class="col-4">
-    <% @boats.each do |boat| %>
       <div class="card" style="width: 18rem;">
-          <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('https://res.cloudinary.com/dognkye6x/image/upload/v1646252623/ship_asgt8t.png') %>)">
-        <div class="card-body">
-          <h5 class="card-title"> <%= boat.name %> </h5>
-          <p class="card-text"> <%= boat.description %> </p>
-          <%= link_to "Check it out", boat_path(boat), class: "btn btn-primary"%>
-          <% end %>
+        <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('https://res.cloudinary.com/dognkye6x/image/upload/v1646252623/ship_asgt8t.png') %>)">
+          <div class="card-body">
+            <h5 class="card-title"> <%= boat.name %> </h5>
+            <p class="card-text"> <%= boat.description %> </p>
+            <%= link_to "Check it out", boat_path(boat), class: "btn btn-primary"%>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
 
 <div class="container mt-5">
