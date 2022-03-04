@@ -11,11 +11,11 @@ class BoatPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    user
   end
 
   def create?
-    admin?
+    user
   end
 
   def edit?
