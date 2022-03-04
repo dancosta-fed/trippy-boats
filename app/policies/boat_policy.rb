@@ -37,7 +37,10 @@ class BoatPolicy < ApplicationPolicy
   end
 
   def admin?
-    @user.admin
+    if @user != nil
+      @user.admin
+    else
+      false
+    end
   end
-
 end
