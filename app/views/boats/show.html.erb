@@ -1,1 +1,86 @@
-<h1>Boat name</h1>
+<div class="card-category card-large single-boat" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('https://res.cloudinary.com/dognkye6x/image/upload/v1646252623/ship_asgt8t.png') %>)";>
+
+<div class="container">
+  <div class="row">
+      <div class="card boat-info col-6">
+        <div class="card-header">
+         <h5 class="card-title"><h2><%= @boat.name %></h2></h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text"> About the boat: <%= @boat.description %></p>
+          <p class="card-text"> This boat is in: <%= @boat.location %></p>
+        </div>
+      </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <h1>Make your reservation</h1>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Country, ZIP, city...">
+                            <span class="form-label"><%= @boat.name %></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="date" required>
+                                    <span class="form-label">Check In</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="date" required>
+                                    <span class="form-label">Check out</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <span class="select-arrow"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control" required>
+                                        <option value="" selected hidden>no of people</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                    <span class="select-arrow"></span>
+                                    <span class="form-label">Adults</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="email" placeholder="Enter your Email">
+                                    <span class="form-label">Email</span>
+                                </div>
+
+                        </div>
+                        <div class="form-btn">
+                            <button class="submit-btn">Book Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
