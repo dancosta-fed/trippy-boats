@@ -9,10 +9,10 @@
   transform: translate(-50%, -50%) scale(1);
   display: none;
   transition: 200ms ease-in-out;
-  border: 1px solid black;
+  border: 3px solid #fff;
   border-radius: 10px;
   background-color: white;
-  height: 50%;
+  height: 45%;
   width: 500px;
   max-width: 80%;
 }
@@ -62,4 +62,14 @@
 #overlay.active {
   opacity: 1;
   pointer-events: all;
+}
+
+.close-button {
+  &:hover {
+    color: red;
+  }
+}
+
+.boat-name {
+  text-transform: uppercase;
 }

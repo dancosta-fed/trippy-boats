@@ -60,10 +60,10 @@
 
               </div>
 
+              <div class="price d-flex justify-content-between align-items-baseline">
               <!-- Button trigger modal -->
-              <button data-modal-target="#modal">Open Modal</button>
-
-              <div class="price text-end">
+              <button class="btn btn-primary mt-2" data-modal-target="#modal">Book Now</button>
+              
                 <h4>R$<%= @boat.price %></h4>
               </div>
         </form>
@@ -76,12 +76,26 @@
 
   <div class="modal" id="modal">
     <div class="modal-header">
-      <div class="title">Example Modal</div>
-      <button data-close-button class="close-button">&times;</button>
+      <div class="title">Booking Message</div>
+      <button data-close-button class="close-button">
+        <i class="fas fa-window-close"></i>
+      </button>
     </div>
     <div class="modal-body">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi, eius libero. Ex, repellat sapiente!
-    </div>
+        <form>
+          <div class="form-group">
+            <h1 for="recipient-name" class="col-form-label text-center">You're booking the...</h1>
+            <h2 class="text-center boat-name"><%= @boat.name %></h2>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text" placeholder="talk to th owner"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
   </div>
   <div id="overlay"></div>
 
