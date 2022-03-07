@@ -1,22 +1,5 @@
 <div class="container mt-3">
   <div class="row">
-    <div class="col-12">
-      <div>
-      <h1>All our Boats</h1>
-        <%= form_tag boats_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Location "
-          %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<div class="container mt-3">
-  <div class="row">
     <% @boats.each do |boat| %>
       <div class="col-4">
         <div class="card" style="width: 18rem;">
