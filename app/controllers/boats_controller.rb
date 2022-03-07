@@ -56,7 +56,7 @@ class BoatsController < ApplicationController
       redirect_to boats_path and return
     else
       @parameter = boat_params[:search].downcase
-      @results = Boats.all.where('lower(name) LIKE :search', search: "%#{@parameter}%")
+      @results = Boats.all.where('name LIKE :search OR location LIKE :search', search: "%#{@parameter}%")
     end
   end
 
@@ -72,6 +72,6 @@ class BoatsController < ApplicationController
   end
 
   def boat_params
-    params.require(:boat).permit(:name, :description, :price, :location)
+    params.require(:boat).permit(:name, :location, :description, :price)
   end
 end

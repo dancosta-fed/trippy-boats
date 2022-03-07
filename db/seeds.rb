@@ -14,7 +14,7 @@ user = User.create!(fullname: 'Fabio', email: "fabio@gmail.com", password: '1234
 
 puts 'Creating 50 fake users...'
 
-50.times do |id|
+50.times do
   user = User.new(
     email:    Faker::Internet.email,
     fullname: Faker::Name.name,
@@ -28,8 +28,8 @@ puts 'Creating 100 fake boats...'
   boat = Boat.new(
     name:    Faker::Name.female_first_name,
     description: Faker::TvShows::GameOfThrones.quote,
-    location:  "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    price: rand(0..699),
+    location:  "#{Faker::Address.country}, #{Faker::Address.city}",
+    price: rand(21..699),
     user: User.all.sample
   )
   boat.save!
