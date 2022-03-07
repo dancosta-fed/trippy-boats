@@ -3,15 +3,14 @@ class BoatsController < ApplicationController
   before_action :set_boat, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query].present?
-      @query = params[:query]
-      @boats = policy_scope(Boat).where("name ILIKE ?", "%#{params[:query]}%")
-      # Preventing SQL Injection and Database error for
-      # unknown characters
-    else
+    if params[:query].blank?
       @boats = policy_scope(Boat)
+    else
+     # @parameter = boat_params[:search].downcase
+      @boats = policy_scope(Boat).search_keyword(params[:query])
     end
   end
+
 
   def show
     @booking = Booking.new
@@ -52,15 +51,6 @@ class BoatsController < ApplicationController
     redirect_to boats_url, notice: 'boat was successfully destroyed.'
   end
 
-  def search
-    if boat_params[:search].present?
-      redirect_to boats_path and return
-    else
-      @parameter = boat_params[:search].downcase
-      @results = Boats.all.where('lower(name) LIKE :search', search: "%#{@parameter}%")
-    end
-  end
-
   private
 
   # def user_status
@@ -73,6 +63,6 @@ class BoatsController < ApplicationController
   end
 
   def boat_params
-    params.require(:boat).permit(:name, :description, :price, :location)
+    params.require(:boat).permit(:name, :location, :description, :price)
   end
 end
