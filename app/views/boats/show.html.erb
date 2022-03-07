@@ -8,19 +8,19 @@
 
 <div class="container d-flex">
 
-<div class="container">
-  <div class="row">
-      <div class="card boat-info col-6">
-        <div class="card-header">
-        <div class="card-title text-capitalize"><h2><%= @boat.name %></h2></div>
-        </div>
-        <div class="card-body">
-          <p class="card-text"> About the boat: <%= @boat.description %></p>
-          <p class="card-text"> This boat is in: <%= @boat.location %></p>
-        </div>
+  <div class="container">
+      <div class="row">
+          <div class="card boat-info col-6">
+            <div class="card-header">
+            <div class="card-title text-capitalize"><h2><%= @boat.name %></h2></div>
+            </div>
+            <div class="card-body">
+              <p class="card-text"> About the boat: <%= @boat.description %></p>
+              <p class="card-text"> This boat is in: <%= @boat.location %></p>
+            </div>
+          </div>
       </div>
   </div>
-</div>
 
 
   <div class="container book">
@@ -60,15 +60,82 @@
 
               </div>
 
-              <div class="form-btn">
-                  <button class="submit-btn btn btn-primary">Book Now</button>
-              </div>
-              <div class="price text-end">
+              <div class="price d-flex justify-content-between align-items-baseline">
+              <!-- Button trigger modal -->
+              <button class="btn btn-primary mt-2" data-modal-target="#modal">Book Now</button>
+              
                 <h4>R$<%= @boat.price %></h4>
               </div>
         </form>
       </div>
     </div>
   </div>
-</div>
 
+
+
+
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="title">Booking Message</div>
+      <button data-close-button class="close-button">
+        <i class="fas fa-window-close"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <h1 for="recipient-name" class="col-form-label text-center">You're booking the...</h1>
+            <h2 class="text-center boat-name"><%= @boat.name %></h2>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text" placeholder="talk to th owner"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+  </div>
+  <div id="overlay"></div>
+
+  <script>
+    const openModalButtons = document.querySelectorAll('[data-modal-target]')
+    const closeModalButtons = document.querySelectorAll('[data-close-button]')
+    const overlay = document.getElementById('overlay')
+
+    openModalButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const modal = document.querySelector(button.dataset.modalTarget)
+        openModal(modal)
+      })
+    })
+
+    overlay.addEventListener('click', () => {
+      const modals = document.querySelectorAll('.modal.active')
+      modals.forEach(modal => {
+        closeModal(modal)
+      })
+    })
+
+    closeModalButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const modal = button.closest('.modal')
+        closeModal(modal)
+      })
+    })
+
+    function openModal(modal) {
+      if (modal == null) return
+      modal.classList.add('active')
+      overlay.classList.add('active')
+    }
+
+    function closeModal(modal) {
+      if (modal == null) return
+      modal.classList.remove('active')
+      overlay.classList.remove('active')
+    }
+  </script>
+
+</div>
