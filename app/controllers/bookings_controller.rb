@@ -16,6 +16,13 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    authorize current_user
+    @booking = Booking.find(booking)
+    @booking.destroy
+    redirect_to users, notice: 'Your booking was successfully canceled.'
+  end
+
   private
 
   def booking_params

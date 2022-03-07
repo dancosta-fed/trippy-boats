@@ -1,8 +1,6 @@
 .card {
-  
-  &:hover {
-    box-shadow: 2px 2px #808080;
-  }
+  cursor: pointer;
+  border-radius: 15px;
 }
 
 .card-category {
@@ -27,4 +25,38 @@
 .card-title {
   color: #808080;
   text-transform: capitalize;
+}
+
+li {
+  list-style-type: none;
+}
+
+.bookings {
+  width: 6%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+  border-radius: 10px;
+  margin-right: .6em;
+}
+
+.info p {
+  margin-bottom: 0;
+}
+
+.boat-bookings {
+  border-top: 1.5px solid #FFF;
+}
+
+.user-bookings {
+  height: 97px;
+  width: 75%;
+  background-size: cover;
+  border: 1.5px solid #808080;
+}
+
+.cancel-btn {
+  width: 35%;
+  border-radius: 5px;
+  align-items: flex-end;
 }
