@@ -26,13 +26,16 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'devise'
 gem 'pundit'
-gem 'faker'
+gem 'pg_search'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
+
+gem 'faker'
 
 group :development, :test do
   gem 'pry-byebug'
