@@ -14,6 +14,7 @@ class BoatsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -52,7 +53,7 @@ class BoatsController < ApplicationController
   end
 
   def search
-    if boat_params[:search].blank?
+    if boat_params[:search].present?
       redirect_to boats_path and return
     else
       @parameter = boat_params[:search].downcase
