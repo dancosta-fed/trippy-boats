@@ -26,9 +26,11 @@
                 <p> <strong>To:</strong> <%= booking.end_date %> </p>
               </div>
             </div>
-            <a class="btn btn-outline-danger cancel-btn">
-              Cancel
-            </a>
+            <%= link_to "cancel", current_user,
+                  method: :destroy,
+                  data: { confirm: "Are you sure?" },
+                  class: 'btn btn-danger'
+              %>
           </div>
 
       <%end  %>
