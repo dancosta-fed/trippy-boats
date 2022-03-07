@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   get '/seach', to: 'boats#search'
-  get '/users', to: 'users#show'
 
   devise_for :users
 
