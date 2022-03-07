@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
       redirect_to boat_path(@boat)
       flash[:notice] = "Your booking is done"
     else
+      flash[:alert] = "Oops!! You need to fill in the form!"
       render 'boats/show'
     end
   end
