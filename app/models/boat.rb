@@ -8,7 +8,7 @@ class Boat < ApplicationRecord
 
   has_many :bookings
   has_many :users, through: :bookings
-  has_many :guest_reviews
+  has_many :guest_reviewss
   belongs_to :user
 
   validates :description, presence: true
