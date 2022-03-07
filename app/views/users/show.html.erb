@@ -1,9 +1,47 @@
 <div class="container">
-  <h1 class="text-center mt-4">Hello <%= current_user.fullname %></h1>
+  <h1 class="text-center mt-4">Hello, <%= current_user.fullname %>!!!</h1>
 
+  <div class="container">
+    <h3 class="text-center">Here you'll see all about your bookings</h3>
+  </div>
+
+<!-- Below is bookings user's made -->
+<div class="container mb-3">
+ <h2 class="text-center mt-3">Your Bookings</h2>
   <div class="row">
+
+    <% current_user.bookings.each do |booking| %>
+      <div class="col-3 card m-2 pb-3">
+        <h2 class="mt-4 text-center"> <%= booking.boat.name %> </h2>
+            <div class="d-flex mt-3 flex-column align-items-center">
+
+            <!-- AFTER ADDING AN IMAGE IS DONE. FIX THE IMAGE PATH FOR THIS CODE -->
+
+              <div class="user-bookings card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('https://res.cloudinary.com/dognkye6x/image/upload/v1646252623/ship_asgt8t.png') %>)";>
+              </div>
+
+              <div class="info mt-2">
+                <!-- <%# <p>By <strong><%= boat.user.fullname %></strong></p> %> -->
+                <p> <strong>From:</strong> <%= booking.start_date %> </p>
+                <p> <strong>To:</strong> <%= booking.end_date %> </p>
+              </div>
+            </div>
+            <a class="btn btn-outline-danger cancel-btn">
+              Cancel
+            </a>
+          </div>
+
+      <%end  %>
+  </div>
+
+</div>
+
+<!-- Below is the boats and their bookings -->
+
+  <div class="row boat-bookings">
+    <h2 class="text-center mt-3">Bookings for your Boats</h2>
     <% current_user.boats.each do |boat| %>
-        <h2> <%= boat.name %> </h2>
+        <h2 class="mt-4"> <%= boat.name %> </h2>
           <% boat.bookings.each do |booking| %>
             <div class="d-flex mt-3 col-12">
 
@@ -12,9 +50,10 @@
               <div class="bookings card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('https://res.cloudinary.com/dognkye6x/image/upload/v1646252623/ship_asgt8t.png') %>)";>
               </div>
 
-              <div class="d-flex flex-column">
-                <p> Start of the trip: <%= booking.start_date %> </p>
-                <p> End of the trip: <%= booking.end_date %> </p>
+              <div class="info">
+                <p>By <strong><%= booking.user.fullname %></strong></p>
+                <p> <strong>From:</strong> <%= booking.start_date %> </p>
+                <p> <strong>To:</strong> <%= booking.end_date %> </p>
               </div>
             </div>
           <%end  %>
@@ -22,5 +61,3 @@
   </div>
 
 </div>
-
-object-fit: cover; vertical-align: bottom; border-radius: var(--go-h-jh-l);
