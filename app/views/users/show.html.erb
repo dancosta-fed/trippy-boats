@@ -1,13 +1,26 @@
 <div class="container">
-  <h1 class="text-center mt-4">Hello, <%= current_user.fullname %></h1>
+  <h1 class="text-center mt-4">Hello <%= current_user.fullname %></h1>
 
-  <% current_user.boats.each do |boat| %>
-    <ul>
-      <% boat.bookings.each do |booking| %>
-        <li> Start of the trip: <%= booking.start_date %> </li>
-        <li> End of the trip: <%= booking.end_date %> </li>
-      <%end  %>
-    </ul>
-  <%end  %>
+  <div class="row">
+    <% current_user.boats.each do |boat| %>
+        <h2> <%= boat.name %> </h2>
+          <% boat.bookings.each do |booking| %>
+            <div class="d-flex mt-3 col-12">
+
+            <!-- AFTER ADDING AN IMAGE IS DONE. FIX THE IMAGE PATH FOR THIS CODE -->
+
+              <div class="bookings card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('https://res.cloudinary.com/dognkye6x/image/upload/v1646252623/ship_asgt8t.png') %>)";>
+              </div>
+
+              <div class="d-flex flex-column">
+                <p> Start of the trip: <%= booking.start_date %> </p>
+                <p> End of the trip: <%= booking.end_date %> </p>
+              </div>
+            </div>
+          <%end  %>
+    <%end  %>
+  </div>
+
 </div>
 
+object-fit: cover; vertical-align: bottom; border-radius: var(--go-h-jh-l);

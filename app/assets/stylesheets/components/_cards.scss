@@ -28,3 +28,17 @@
   color: #808080;
   text-transform: capitalize;
 }
+
+li {
+  list-style-type: none;
+}
+
+.bookings {
+  width: 35%;
+  height: 170px;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  vertical-align: bottom;
+  width: 16%;
+  border-radius: 10px;
+}
