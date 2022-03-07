@@ -1,1 +1,13 @@
-<p>Profile</p>
+<div class="container">
+  <h1 class="text-center mt-4">Hello, <%= current_user.fullname %></h1>
+
+  <% current_user.boats.each do |boat| %>
+    <ul>
+      <% boat.bookings.each do |booking| %>
+        <li> Start of the trip: <%= booking.start_date %> </li>
+        <li> End of the trip: <%= booking.end_date %> </li>
+      <%end  %>
+    </ul>
+  <%end  %>
+</div>
+
