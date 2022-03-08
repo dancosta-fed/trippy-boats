@@ -11,7 +11,6 @@ class BoatsController < ApplicationController
     end
   end
 
-
   def show
     @booking = Booking.new
   end
@@ -64,6 +63,5 @@ class BoatsController < ApplicationController
 
   def boat_params
     params.require(:boat).permit(:name, :description, :price, :location, :photo)
-
   end
 end
