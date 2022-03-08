@@ -14,12 +14,13 @@
 @import "single-boat";
 @import "rating";
 @import "popup";
+@import "dropdown";
 
 // Main design
 
 body {
   background-color: $space-3-hex;
-  color: $space-1-hex;
+  color: $blue;
 }
 
 .navbar {

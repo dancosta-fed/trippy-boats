@@ -1,0 +1,19 @@
+.dropdown-menu {
+  color: $blue;
+  border-radius: 5px;
+}
+
+.dropdown-menu p {
+  &:hover {
+    background-color: $blue;
+    color: white;
+  }
+}
+
+.cancel-btn {
+  text-decoration: none;
+  &:hover {
+    background-color: $blue;
+    color: white;
+  }
+}

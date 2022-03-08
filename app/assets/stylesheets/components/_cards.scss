@@ -1,6 +1,8 @@
 .card {
   cursor: pointer;
   border-radius: 15px;
+  padding: 20px;
+  
 }
 
 .card-category {
@@ -49,14 +51,24 @@ li {
 }
 
 .user-bookings {
-  height: 97px;
-  width: 75%;
+  height: 200px;
+  width: 30%;
   background-size: cover;
   border: 1.5px solid #808080;
+  align-self: flex-start;
+
+  position: absolute;
+  top: 35px;
 }
 
 .cancel-btn {
   width: 35%;
   border-radius: 5px;
   align-items: flex-end;
+}
+
+.card-bg {
+  background-color: $space-2-hex;
+  color: $space-3-hex;
+  border-radius: 10px;
 }
