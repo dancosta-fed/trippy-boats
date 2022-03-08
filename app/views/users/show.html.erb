@@ -27,6 +27,7 @@
               <%= link_to "💔 cancelation", booking_path(booking),
                 method: :delete,
                 data: { confirm: "Are you sure?" },
+                
                 class: 'ms-2 cancel-btn'
               %>
             </p>
@@ -42,7 +43,7 @@
 
             <!-- AFTER ADDING AN IMAGE IS DONE. FIX THE IMAGE PATH FOR THIS CODE -->
 
-              <div class="user-bookings card-category card-large ms-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('https://res.cloudinary.com/dognkye6x/image/upload/v1646252623/ship_asgt8t.png') %>)";>
+              <div class="user-bookings card-category card-large ms-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_tag photo.key, height: 300, crop: :fill %>)">
               </div>
 
               <div class="info mt-2 d-flex">

@@ -3,7 +3,11 @@
     <% @boats.each do |boat| %>
       <div class="col-4">
         <div class="card" style="width: 18rem;">
+          <%if boat.photo.attached? %>
           <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path boat.photo.key, height: 300, crop: :fill %>')">
+          <% else  %>
+            <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dognkye6x/image/upload/v1646737398/jetboat_danjxy.png')">
+          <%end %>
             <div class="card-body">
             </div>
           </div>
