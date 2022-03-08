@@ -7,31 +7,34 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require "open-uri"
 
 
-puts "Adding Mr. Fabio..."
-user = User.create!(fullname: 'Fabio', email: "fabio@gmail.com", password: '123456')
 
-puts 'Creating 50 fake users...'
+puts 'Creating 2 fake users...'
 
-50.times do
+2.times do |i|
   user = User.new(
-    email:    Faker::Internet.email,
+    email: "user@#{i + 1}example.com",
     fullname: Faker::Name.name,
     password: "password"
   )
   user.save!
 end
 
-puts 'Creating 100 fake boats...'
-100.times do
+puts 'Creating 25 fake boats...'
+25.times do
   boat = Boat.new(
     name:    Faker::Name.female_first_name,
     description: Faker::TvShows::GameOfThrones.quote,
     location:  "#{Faker::Address.country}, #{Faker::Address.city}",
     price: rand(21..699),
-    user: User.all.sample
-  )
+    user: User.all.sample,
+    )
   boat.save!
 end
+
+puts "Adding Mr. Fabio..."
+User.create!(fullname: 'Fabio', email: "fabio@gmail.com", password: '123456')
+
 puts "Finished!"
