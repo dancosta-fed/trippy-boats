@@ -15,3 +15,13 @@
 @import "rating";
 @import "popup";
 
+// Main design
+
+body {
+  background-color: $space-3-hex;
+  color: $space-1-hex;
+}
+
+.navbar {
+  background-color: $space-3-hsla;
+}
