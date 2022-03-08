@@ -20,7 +20,8 @@ class BookingsController < ApplicationController
     authorize current_user
     @booking = Booking.find(booking)
     @booking.destroy
-    redirect_to users, notice: 'Your booking was successfully canceled.'
+    redirect_to users, 
+    flash[:notice] = "Your booking was successfully canceled."
   end
 
   private
