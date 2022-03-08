@@ -24,8 +24,8 @@
             <!-- Dropdown menu links -->
             <p class="ms-2">💬 Message</p>
             <p>
-              <%= link_to "💔 cancelation", current_user,
-                method: :destroy,
+              <%= link_to "💔 cancelation", booking_path(booking),
+                method: :delete,
                 data: { confirm: "Are you sure?" },
                 class: 'ms-2 cancel-btn'
               %>
