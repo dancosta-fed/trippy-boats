@@ -3,12 +3,19 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-image: url(https://www.alfab.com.au/wp-content/uploads/2018/10/marinewindows-min1.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.alfab.com.au/wp-content/uploads/2018/10/marinewindows-min1.jpg);
   background-size: cover;
   background-position: center;
-  padding: 200px 0 20px 0;
+  padding: 20px 0 20px 0;
   color: white;
   font-weight: bold;
   margin: 0 20px 20px 20px;
   border-radius: 25px;
+}
+
+.brand-name {
+  font-size: 12em;
+  font-style: italic;
+  font-weight: 800;
+  text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
 }
