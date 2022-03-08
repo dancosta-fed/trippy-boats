@@ -8,6 +8,9 @@
   <!-- Below is bookings user's made -->
   <div class="container mb-3">
   <h2 class="text-center mt-3 card-bg">Your Bookings</h2>
+
+  <!-- Only show this if there are bookings ELSE show "No bookings yet!"-->
+
     <div class="row">
 
       <% current_user.bookings.each do |booking| %>
@@ -59,6 +62,7 @@
 
     <div class="row boat-bookings">
       <h2 class="text-center mt-3 card-bg">Bookings for your Boats</h2>
+      <!-- Only show this if there are bookings ELSE show "No bookings yet!"-->
       <% current_user.boats.each do |boat| %>
           <h2 class="mt-4"> <%= boat.name %> </h2>
             <% boat.bookings.each do |booking| %>
