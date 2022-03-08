@@ -1,65 +1,81 @@
-<div class="container">
-  <h1 class="text-center mt-4">Hello, <%= current_user.fullname %>!!!</h1>
+<div class="container-md">
+    <h5 class="text-start mt-4">Hello, <%= current_user.fullname %>...</h5>
 
-  <div class="container">
-    <h3 class="text-center">Here you'll see all about your bookings</h3>
-  </div>
+    <div class="container-md">
+      <h3 class="text-center">Here you'll see all about your bookings</h3>
+    </div>
 
-<!-- Below is bookings user's made -->
-<div class="container mb-3">
- <h2 class="text-center mt-3">Your Bookings</h2>
-  <div class="row">
+  <!-- Below is bookings user's made -->
+  <div class="container mb-3">
+  <h2 class="text-center mt-3 card-bg">Your Bookings</h2>
+    <div class="row">
 
-    <% current_user.bookings.each do |booking| %>
-      <div class="col-3 card m-2 pb-3">
-        <h2 class="mt-4 text-center"> <%= booking.boat.name %> </h2>
+      <% current_user.bookings.each do |booking| %>
+      <div class="col-12 card m-2 pb-3">
+
+        <!-- Default dropstart button -->
+        <div class="dropsend align-self-end mt-3 me-3">
+          <i class="fas fa-caret-circle-down dropdown-toggle"data-bs-toggle="dropdown" aria-expanded="false"></i>
+  
+          <ul class="dropdown-menu">
+            <!-- Dropdown menu links -->
+            <p class="ms-2">💬 Message</p>
+            <p>
+              <%= link_to "💔 cancelation", current_user,
+                method: :destroy,
+                data: { confirm: "Are you sure?" },
+                class: 'ms-2 cancel-btn'
+              %>
+            </p>
+          </ul>
+        </div>
+
+          
+          <h2 class="mt-4 text-center"> <%= booking.boat.name %> </h2>
+          <h5 class="text-center"> <%= booking.boat.location %> </h5>
+          <p class="text-center"> <%= booking.boat.description %> </p>
+
             <div class="d-flex mt-3 flex-column align-items-center">
 
             <!-- AFTER ADDING AN IMAGE IS DONE. FIX THE IMAGE PATH FOR THIS CODE -->
 
-              <div class="user-bookings card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('https://res.cloudinary.com/dognkye6x/image/upload/v1646252623/ship_asgt8t.png') %>)";>
+              <div class="user-bookings card-category card-large ms-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('https://res.cloudinary.com/dognkye6x/image/upload/v1646252623/ship_asgt8t.png') %>)";>
               </div>
 
-              <div class="info mt-2">
+              <div class="info mt-2 d-flex">
                 <!-- <%# <p>By <strong><%= boat.user.fullname %></strong></p> %> -->
-                <p> <strong>From:</strong> <%= booking.start_date %> </p>
+                <p class="me-2"> <strong>From:</strong> <%= booking.start_date %> </p>
                 <p> <strong>To:</strong> <%= booking.end_date %> </p>
               </div>
             </div>
-            <%= link_to "cancel", current_user,
-                  method: :destroy,
-                  data: { confirm: "Are you sure?" },
-                  # class: 'btn btn-danger'
-              %>
           </div>
+        <%end  %>
 
+    </div>
+
+  </div>
+
+  <!-- Below is the boats and their bookings -->
+
+    <div class="row boat-bookings">
+      <h2 class="text-center mt-3 card-bg">Bookings for your Boats</h2>
+      <% current_user.boats.each do |boat| %>
+          <h2 class="mt-4"> <%= boat.name %> </h2>
+            <% boat.bookings.each do |booking| %>
+              <div class="d-flex mt-3 col-12">
+
+              <!-- AFTER ADDING AN IMAGE IS DONE. FIX THE IMAGE PATH FOR THIS CODE -->
+
+                <div class="bookings card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('https://res.cloudinary.com/dognkye6x/image/upload/v1646252623/ship_asgt8t.png') %>)";>
+                </div>
+
+                <div class="info">
+                  <p>By <strong><%= booking.user.fullname %></strong></p>
+                  <p> <strong>From:</strong> <%= booking.start_date %> </p>
+                  <p> <strong>To:</strong> <%= booking.end_date %> </p>
+                </div>
+              </div>
+            <%end  %>
       <%end  %>
-  </div>
-
-</div>
-
-<!-- Below is the boats and their bookings -->
-
-  <div class="row boat-bookings">
-    <h2 class="text-center mt-3">Bookings for your Boats</h2>
-    <% current_user.boats.each do |boat| %>
-        <h2 class="mt-4"> <%= boat.name %> </h2>
-          <% boat.bookings.each do |booking| %>
-            <div class="d-flex mt-3 col-12">
-
-            <!-- AFTER ADDING AN IMAGE IS DONE. FIX THE IMAGE PATH FOR THIS CODE -->
-
-              <div class="bookings card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('https://res.cloudinary.com/dognkye6x/image/upload/v1646252623/ship_asgt8t.png') %>)";>
-              </div>
-
-              <div class="info">
-                <p>By <strong><%= booking.user.fullname %></strong></p>
-                <p> <strong>From:</strong> <%= booking.start_date %> </p>
-                <p> <strong>To:</strong> <%= booking.end_date %> </p>
-              </div>
-            </div>
-          <%end  %>
-    <%end  %>
-  </div>
-
+    </div>
 </div>
