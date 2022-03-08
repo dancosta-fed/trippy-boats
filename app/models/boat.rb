@@ -1,11 +1,11 @@
 class Boat < ApplicationRecord
 
-  # include PgSearch::Model
-  # pg_search_scope :search_keyword,
-  #   against: [ :name, :location],
-  #   using: {
-  #     tsearch: { prefix: true }
-  #   }
+  include PgSearch::Model
+  pg_search_scope :search_keyword,
+    against: [ :name, :location],
+    using: {
+      tsearch: { prefix: true }
+    }
 
   has_many :bookings
   has_many :users, through: :bookings

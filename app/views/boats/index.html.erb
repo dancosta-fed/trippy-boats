@@ -17,11 +17,11 @@
           </div>
           <%= link_to "Check it out", boat_path(boat), class: "btn btn-primary"%>
           <% if policy(boat).edit? %>
-            <%= link_to 'Edit', edit_boat_path(boat), class: 'btn btn-success' %>
+            <%= link_to 'Edit', edit_boat_path(boat), class: 'btn btn-primary' %>
             <%= link_to "Remove", boat_path(boat),
                   method: :delete,
                   data: { confirm: "Are you sure?" },
-                  class: 'btn btn-danger'
+                  # class: 'btn btn-danger'
               %>
           <% end %>
         </div>
