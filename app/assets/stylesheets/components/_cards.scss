@@ -2,7 +2,7 @@
   cursor: pointer;
   border-radius: 15px;
   padding: 20px;
-  
+
 }
 
 .card-category {
@@ -23,10 +23,11 @@
   // }
 }
 
-.card-text, 
+.card-text,
 .card-title {
   color: #808080;
   text-transform: capitalize;
+  text-align: center;
 }
 
 li {
